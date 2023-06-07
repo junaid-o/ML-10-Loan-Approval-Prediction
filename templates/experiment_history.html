@@ -1,0 +1,24 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+
+<title>Train Status</title>
+{% endblock %}
+
+{% block content %}
+
+<!--
+<a class="btn btn-primary" href="/">Home</a>    --> <!-- Home Button On Experiment History Page -->
+
+
+<div class="container" id="experiment" style="margin-left:-20%; margin-bottom:20px;width:1200px;overflow:auto">
+
+    <div class="col-md-12">
+        {{ context['experiment']|safe }}
+    </div>
+</div>
+
+
+
+{% endblock %}

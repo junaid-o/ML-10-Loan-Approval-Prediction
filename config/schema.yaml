@@ -1,0 +1,40 @@
+columns:
+  Loan_ID: float
+  Gender_Male: category
+  Married_Yes: category
+  Dependents_1: category
+  Dependents_2: category
+  Dependents_3_plus: category
+  Education_Not_Graduate: category
+  Self_Employed_Yes: category
+  ApplicantIncome: float
+  CoapplicantIncome: float
+  LoanAmount: float
+  Loan_Amount_Term: float
+  Credit_History: float
+  Property_Area_Semiurban: category
+  Property_Area_Urban: category
+  Loan_Status_Y: category
+  
+numerical_columns:
+  -  ApplicantIncome
+  -  CoapplicantIncome
+  -  LoanAmount
+  -  Loan_Amount_Term
+
+categorical_columns:
+  -  Gender
+  -  Married
+  -  Dependents
+  -  Education_Not_Graduate
+  -  Self_Employed
+  -  Property_Area
+  -  Credit_History
+  -  Loan_Status_Y
+
+target_column: Loan_Status_Y
+
+domain_value:
+  Loan_Status_Y:
+    - 0
+    - 1

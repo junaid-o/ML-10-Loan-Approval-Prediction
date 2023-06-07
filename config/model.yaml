@@ -1,0 +1,29 @@
+grid_search:
+  class: GridSearchCV
+  module: sklearn.model_selection
+  params:
+    cv: 2
+    verbose: 3
+    refit: roc_auc_ovr_weighted
+    scoring: [f1_weighted, roc_auc_ovr_weighted, balanced_accuracy, neg_log_loss]
+
+model_selection:
+  module_1:
+    class: RandomForestClassifier
+    module: sklearn.ensemble
+    params:
+      random_state: 2023
+    search_param_grid:            
+      n_estimators: [500]            
+      max_features: [sqrt, log2]
+      class_weight: [balanced, balanced_subsample]      
+
+  module_2:
+    class: KNeighborsClassifier
+    module: sklearn.neighbors
+    params:
+      algorithm: auto
+      weights: distance
+    search_param_grid: 
+      n_neighbors: [3, 6, 9]
+      

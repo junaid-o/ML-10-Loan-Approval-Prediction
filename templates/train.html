@@ -1,0 +1,40 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+
+<title>Train Status</title>
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<!--
+<a class="btn btn-primary" href="/">Home</a><br><br>  --> <!-- Home Button On Training Page -->
+
+<div class="row" id="training-message" style="text-align:center; margin-left:0px;">
+  <div class="alert alert-primary" role="alert" style="font-size:1.5em;font-weight: 700">
+
+    {{ context['message']}}
+
+  </div>
+  <div class="container" id="training-gear" style="display:flex;justify-content: center; align-items: center;">
+    <h1 style="font-size:4em;"><i class="fa-solid fa-gear fa-spin"></i></h1>
+    <h1 style="font-size:2em;"><i class="fa-solid fa-gear fa-spin fa-spin-reverse"></i></h1>
+  </div>
+</div>
+
+<div class="container" id="experiment"
+  style="margin-left: -22%; overflow: scroll; justify-content: center; align-items: center; min-width: 1320px; max-width: 1300px;">
+
+  {{ context['experiment']|safe }}
+
+</div>
+
+
+
+
+
+{% endblock %}

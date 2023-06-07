@@ -1,0 +1,502 @@
+* {
+    justify-content: space-around;
+  }
+  
+  
+  /* ---------------------- STYLE FOR GLOBE----------------------------------------*/
+  
+  /* 
+  body {
+    background:#05070b;
+  }
+  .card {
+    overflow: hidden;
+  }
+  .content{ 
+    display: flex;
+    margin-top: 10vh;
+    justify-content: space-around;
+  }
+  svg{  
+    height:400px;
+    width:400px;
+    overflow: hidden;
+  }
+  circle {
+    stroke: #454343;
+    stroke-width: 2px;
+    fill: none;
+  }
+  
+  .equator {
+    -webkit-transform: rotateZ(-20deg) rotateX(125deg);
+            transform: rotateZ(-20deg) rotateX(125deg);
+  }
+  
+  .meridian {
+    -webkit-animation: turn 0.5s infinite linear;
+            animation: turn 0.5s infinite linear;
+  }
+  .meridian:nth-child(1) {
+    --target: 180deg / $count * ($i + 1);
+    -webkit-transform: rotateZ(-20deg) rotateX(35deg) rotateY(15deg);
+            transform: rotateZ(-20deg) rotateX(35deg) rotateY(15deg);
+  }
+  .meridian:nth-child(2) {
+    --target: 180deg / $count * ($i + 1);
+    -webkit-transform: rotateZ(-20deg) rotateX(35deg) rotateY(30deg);
+            transform: rotateZ(-20deg) rotateX(35deg) rotateY(30deg);
+  }
+  .meridian:nth-child(3) {
+    --target: 180deg / $count * ($i + 1);
+    -webkit-transform: rotateZ(-20deg) rotateX(35deg) rotateY(45deg);
+            transform: rotateZ(-20deg) rotateX(35deg) rotateY(45deg);
+  }
+  .meridian:nth-child(4) {
+    --target: 180deg / $count * ($i + 1);
+    -webkit-transform: rotateZ(-20deg) rotateX(35deg) rotateY(60deg);
+            transform: rotateZ(-20deg) rotateX(35deg) rotateY(60deg);
+  }
+  .meridian:nth-child(5) {
+    --target: 180deg / $count * ($i + 1);
+    -webkit-transform: rotateZ(-20deg) rotateX(35deg) rotateY(75deg);
+            transform: rotateZ(-20deg) rotateX(35deg) rotateY(75deg);
+  }
+  .meridian:nth-child(6) {
+    --target: 180deg / $count * ($i + 1);
+    -webkit-transform: rotateZ(-20deg) rotateX(35deg) rotateY(90deg);
+            transform: rotateZ(-20deg) rotateX(35deg) rotateY(90deg);
+  }
+  .meridian:nth-child(7) {
+    --target: 180deg / $count * ($i + 1);
+    -webkit-transform: rotateZ(-20deg) rotateX(35deg) rotateY(105deg);
+            transform: rotateZ(-20deg) rotateX(35deg) rotateY(105deg);
+  }
+  .meridian:nth-child(8) {
+    --target: 180deg / $count * ($i + 1);
+    -webkit-transform: rotateZ(-20deg) rotateX(35deg) rotateY(120deg);
+            transform: rotateZ(-20deg) rotateX(35deg) rotateY(120deg);
+  }
+  .meridian:nth-child(9) {
+    --target: 180deg / $count * ($i + 1);
+    -webkit-transform: rotateZ(-20deg) rotateX(35deg) rotateY(135deg);
+            transform: rotateZ(-20deg) rotateX(35deg) rotateY(135deg);
+  }
+  .meridian:nth-child(10) {
+    --target: 180deg / $count * ($i + 1);
+    -webkit-transform: rotateZ(-20deg) rotateX(35deg) rotateY(150deg);
+            transform: rotateZ(-20deg) rotateX(35deg) rotateY(150deg);
+  }
+  .meridian:nth-child(11) {
+    --target: 180deg / $count * ($i + 1);
+    -webkit-transform: rotateZ(-20deg) rotateX(35deg) rotateY(165deg);
+            transform: rotateZ(-20deg) rotateX(35deg) rotateY(165deg);
+  }
+  .meridian:nth-child(12) {
+    --target: 180deg / $count * ($i + 1);
+    -webkit-transform: rotateZ(-20deg) rotateX(35deg) rotateY(180deg);
+            transform: rotateZ(-20deg) rotateX(35deg) rotateY(180deg);
+  }
+  .meridian:nth-child(13) {
+    --target: 180deg / $count * ($i + 1);
+    -webkit-transform: rotateZ(-20deg) rotateX(35deg) rotateY(195deg);
+            transform: rotateZ(-20deg) rotateX(35deg) rotateY(195deg);
+  }
+  .meridian:nth-child(14) {
+    --target: 180deg / $count * ($i + 1);
+    -webkit-transform: rotateZ(-20deg) rotateX(35deg) rotateY(210deg);
+            transform: rotateZ(-20deg) rotateX(35deg) rotateY(210deg);
+  }
+  */
+  
+  /* --------------------------------------------------------------*/
+  
+  /* STYLE FOR RING CARD */
+  
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+  /*
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  
+  body {
+    width: 100%;
+    min-height: 100vh;
+     background: #eee;
+    display: grid;
+    
+  }
+  */
+  
+  
+  .card-container#animated-container {
+  
+    display: flex;
+    flex-wrap: wrap;
+  
+    justify-content: space-center;
+    max-width: 1200px;
+    /* adjust as needed */
+    min-width: 1200px;
+    margin: 10px auto;
+    margin-bottom: 50px;
+  }
+  
+  
+  .cardBox {
+    max-width: 100%;
+    width: 300px;
+    height: 150px;
+    margin: 5px;
+    /* Set margin between cards */
+    position: relative;
+    display: flex;
+    place-items: center;
+  
+    overflow: hidden;
+  
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px,
+      rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+  }
+  
+  .card#animated-card {
+    position: relative;
+    width: 95%;
+    height: 95%;
+    background: #000814;
+    border-radius: 20px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    /*place-items: center;*/
+    flex-direction: column;
+  
+    color: #ffffff;
+    overflow: hidden;
+    padding: 20px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 60px -12px inset,
+      rgba(0, 0, 0, 0.5) 0px 18px 36px -18px inset;
+  }
+  
+  .card#animated-card h6 {
+    text-align: left;
+    text-size: 1em;
+    font-weight: 100
+  }
+  
+  .card#animated-card .content h1 {
+    text-align: center;
+    font-size: 4em;
+    font-weight: 600;
+  }
+  
+  
+  /*
+  #animated-card.card h2, span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-weight: 800;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  
+  span {
+    top: 75%;
+  }
+  
+  .card .content h3 {
+    font-size: 3rem;
+    padding-bottom: 10px;
+  }
+  .card .content p {
+    font-size: 1.6rem;
+    line-height: 25px;
+  }
+  
+  
+  .card .content {
+    transform: translateY(100%);
+    opacity: 1;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .card:hover .content {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  #animated-card.card:hover h2 {
+    opacity: 0;
+  }
+  .card:hover .content h3 {
+    opacity: 1;
+  }
+  
+  #animated-card.card:hover span {
+    opacity: 0;
+  }
+  */
+  .cardBox::before {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 200%;
+    background: #40E0D0;
+    background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+    background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+    animation: glowing01 5s linear infinite;
+    transform-origin: center;
+    animation: glowing 5s linear infinite;
+  }
+  
+  @keyframes glowing {
+    0% {
+      transform: rotate(0);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* --------- Flash Cards Style ------*/
+  /*
+  body {
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    font-family:sans-serif;
+    background-color:#262626
+    
+  }
+  */
+  .container#columns {
+    display: flex;
+    flex-wrap: wrap;
+    place-items: center;
+    justify-content: space-center;
+    max-zoom: 100%;
+    min-zoom: 80%;
+    min-width: 1000px;
+    max-width: 800px;
+  
+  }
+  
+  
+  .right-column .testimonials-container#report {
+  
+    display: flex;
+    flex-wrap: wrap;
+    place-items: left;
+    justify-content: space-between;
+    min-width: 150px;
+    /* 950px */
+    max-width: 150px;
+    /* adjust as needed */
+    margin-left: -100%;
+  }
+  
+  
+  
+  
+  .left-column .testimonials-container#testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    place-items: center;
+    justify-content: space-center;
+    min-width: 950px;
+    /* 950px */
+    max-width: 300px;
+    /* adjust as needed */
+    margin: 0px auto;
+  }
+  
+  
+  
+  
+  .testimotionals {
+    display: flex;
+    flex-wrap: wrap;
+    place-items: center;
+    justify-content: space-center;
+  }
+  
+  
+  .right-column .testimotionals .card {
+  
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: visible;
+    width: 150px;
+    height: 345px;
+    margin-right: 10%;
+  
+    background: #333;
+    padding: 0px;
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, .5)
+  }
+  
+  
+  
+  .testimotionals .card {
+  
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: visible;
+    width: 300px;
+    height: 160px;
+    margin: 10px auto;
+    margin-right: 50%;
+    margin-left: -40%;
+    background: #333;
+    padding: 0px;
+  
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, .5)
+  }
+  
+  .testimotionals .card .layer {
+    z-index: 1;
+    position: absolute;
+    /*top: calc(100% - 2px);*/
+    height: 100%;
+    width: 100%;
+    left: -0%;
+    background: linear-gradient(to left, orange, tomato);
+    transition: 0.5s;
+  }
+  
+  .testimotionals .card:hover .layer {
+    /*top:0;*/
+    /*left: calc(50% - 2px);*/
+    left: -20%;
+    width: 50%;
+    height: 100%;
+    font-size: xx-small;
+    opacity: 0;
+  
+  }
+  
+  
+  
+  
+  .testimotionals .card .content {
+    z-index: 0;
+    /* element with higher index will appear on top */
+    position: relative;
+    transition: none;
+    transform: none;
+    color: white;
+  }
+  
+  /*
+  .testimotionals .card .content .image {
+    width:100px; height:100px;
+    margin:0 auto;
+    border-radius:50%;
+    overflow:hidden;
+    border: 4px solid white;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  
+  }
+  
+  .testimotionals .card .conte nt .details h2 {
+  font-size:18px;
+  color:white;
+  }
+  .testimotionals .card .content .details h2 span {
+  font-size:18px;
+  color:purple;
+    transition:0.5s;
+  }
+  .testimotionals .card:hover .content .details h2 span {
+    color:white;
+    position:relative
+  }
+  */
+  
+  body {
+    margin-bottom: 20px
+  }
+  
+  
+  /**************** STYLE FOR NAVBAR ************/
+  
+  /* Style for navbar */
+  .navbar {
+    background-color: #000000;
+    /* Change background color of navbar default #283142*/
+    height: 50px;
+    /* Change height of navbar */
+  }
+  
+  .navbar-brand {
+    color: rgb(253, 0, 0);
+    /* Change text color of navbar brand */
+    font-weight: bold;
+    /* Add bold font-weight to navbar brand */
+    font-size: 24px;
+    /* Change font size of navbar brand */
+  }
+  
+  .nav-link {
+    color: #fff;
+    /* Change text color of navbar links */
+    font-weight: bold;
+    /* Add bold font-weight to navbar links */
+    font-size: 18px;
+    /* Change font size of navbar links */
+    margin-right: 20px;
+    /* Add margin between navbar links */
+  }
+  
+  .nav-link:hover {
+    color: #bfbfbf;
+    /* Change text color of navbar links on hover */
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("https://cdn.iconscout.com/icon/premium/png-512-thumb/dashboard-2460439-2069767.png");
+    /* Change hamburger icon to dashboard icon */
+    width: 30px;
+    /* Change width of navbar toggler icon */
+    height: 30px;
+    /* Change height of navbar toggler icon */
+    background-size: contain;
+    /* Scale the icon to fit the toggler button */
+  }
+  
+  @media (max-width: 767.98px) {
+    .navbar-brand {
+      margin-right: 40px;
+      /* Add margin to navbar brand on mobile devices */
+    }
+  }
+  
+  /*********************************************\
+  /* Dividing The Screen Into Two Columns */
+  .left-column {
+  
+    width: 80%;
+  }
+  
+  .right-column {
+  
+    width: 10%;
+  }

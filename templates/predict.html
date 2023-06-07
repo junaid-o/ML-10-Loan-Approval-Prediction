@@ -1,0 +1,172 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+
+<title>LoanApproval Predictor</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
+
+
+    <form action="/predict" method="post">
+      <legend></legend>
+
+      <!--<label class=" form-label">Sex</label>-->
+      <select class="form-control" name="Gender_Male" required>
+        <option value="">Gender</option>
+        <option value="1">Male</option>
+        <option value="0">Female</option>
+      </select>
+
+  </div>
+  <div class="mb-3">
+    <!--<label class="form-label">On Thyroxine</label>-->
+    <select class="form-control" name="Married_Yes" required>
+      <option value="">Married</option>
+      <option value="1">Yes</option>
+      <option value="0">No</option>
+    </select>
+
+
+  </div>
+
+  <div class="mb-3">
+    <!--<label class="form-label"></label>-->
+    <select class="form-control" name="Education_Not_Graduate" required>
+      <option value="">Graduate</option>
+      <option value="0">Yes</option>
+      <option value="1">No</option>
+    </select>
+
+  </div>
+  <div class="mb-3">
+    <!--<label class="form-label"></label>-->
+    <select class="form-control" name="Self_Employed_Yes" required>
+      <option value="">Self Employed</option>
+      <option value="1">Yes</option>
+      <option value="0">No</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <!--<label class="form-label"></label>-->
+    <select class="form-control" name="Credit_History" required>
+      <option value="">Credit</option>
+      <option value="1">Yes</option>
+      <option value="0">No</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <!--<label class="form-label"></label>-->
+    <select class="form-control" name="Property_Area" required>
+      <option value="">Property Area</option>
+      <option value="Semiurban">Semi-Urban</option>
+      <option value="Urban">Urban</option>
+      <option value="Rural">Rural</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <!--<label class="form-label">I131_treatment</label>-->
+    <select class="form-control" name="Dependent" required>
+      <option value="">Dependent</option>
+      <option value="Dependent_1">1</option>
+      <option value="Dependent_2">2</option>
+      <option value="Dependent_3">3+</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <!--<label class="form-label">TSH</label>-->
+    <input class="form-control" type="number" name="ApplicantIncome" placeholder="Applicant Income" required>
+  </div>
+  <div class="mb-3">
+    <!--<label class="form-label">T3</label>-->
+    <input class="form-control" type="number" name="CoApplicantIncome" placeholder="CoApplicant Income" required>
+  </div>
+
+
+  <div class="mb-3">
+    <!--<label class="form-label">TT4</label>-->
+    <input class="form-control" type="number" name="LoanAmmountTerm" placeholder="Loan Ammount Term" required>
+  </div>
+
+
+
+  <div class="mb-3">
+    <!--<label class="form-label">TT4</label>-->
+    <input class="form-control" type="number" name="LoanAmmount" placeholder="Loan Ammount" required>
+  </div>
+
+
+
+
+  <div class="mb-3">
+
+    <input class="btn btn-primary" type="submit" value="Predict Diseased State" required />
+  </div>
+
+  </form>
+</div>
+
+
+<div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
+  <div class="card">
+    <!--<div class="card-header"></div>-->
+    <div class="card-body">
+
+      {% if context['LoanApproval_Data'] is not none %}
+
+      <table class="table table-striped">
+        <caption>Loan Approval Prediction</caption>
+        <tr>
+          <th>Input Feature</th>
+          <th>Feature Value</th>
+        </tr>
+        {% for column, value in context['LoanApproval_Data'].items() %}
+        <tr>
+          <td>{{ column }}</td>
+          <td>{{ value[0] }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td>LoanApproval_prediction_value</td>
+          <td>{{ context['LoanApproval_prediction_value'] }}</td>
+        </tr>
+      </table>
+
+
+
+      {% else %}
+
+      <!--
+              <h5 class="card-title">Submit Form</h5>
+              <p class="card-text">Kindly provide necessary information to make prediction about LoanApproval</p>
+              -->
+
+      <form method="POST" action="{{url_for('predict_bulk')}}" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="file"></label>
+          <input type="file" id="file" name="file" accept=".csv" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Bulk Prediction</button>
+      </form>
+    </div>
+
+
+    {% endif %}
+
+    <!--
+        <a href="/" class="btn btn-primary">Home</a> 
+        -->
+
+  </div>
+</div>
+
+
+
+</div>
+
+{% endblock %}

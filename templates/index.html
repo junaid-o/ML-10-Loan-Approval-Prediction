@@ -1,0 +1,252 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+
+<title>Index</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="row flex-wrap">
+    <div class="card-container" id="animated-container">
+        <div class="row flex-wrap" id="animated-row">
+
+            <div class="col-sm-3 col-md-4 col-lg-3">
+                <div class="cardBox">
+                    <div class="card" id="animated-card">
+                        <h6>F1</h6>
+
+                        <div class="content">
+                            <h1>{{ f1_score_test | safe }}</h1>
+                            <h6 style="text-align: right;">{{ f1_score_train | safe }}</h6>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-md-4 col-lg-3">
+                <div class="cardBox">
+                    <div class="card" id="animated-card">
+                        <h6>ROC AUC</h6>
+
+                        <div class="content">
+                            <h1>{{ roc_auc_ovr_weighted_test | safe}}</h1>
+                            <h6 style="text-align: right;">{{ roc_auc_ovr_weighted_train | safe}}</h6>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-md-4 col-lg-3">
+                <div class="cardBox">
+                    <div class="card" id="animated-card">
+                        <h6>Accuracy</h6>
+
+                        <div class="content">
+                            <h1>{{ balanced_accuracy_test}}</h1>
+                            <h6 style="text-align: right;">{{ balanced_accuracy_train | safe}}</h6>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 col-md-4 col-lg-3">
+                <div class="cardBox">
+                    <div class="card" id="animated-card">
+                        <h6>Log loss</h6>
+
+                        <div class="content">
+                            <h1>{{ log_loss_test | safe}}</h1>
+                            <h6 style="text-align: right;">{{ log_loss_train | safe}}</h6>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!------------ CARD FLASH --------------->
+
+<div class="container" id="columns">
+
+    <div class="right-column">
+
+        <div class="testimonials-container" id="report">
+            <div class="testimotionals">
+                <div class="card">
+                    <div class="layer">
+                        <h1 style="font-size:4em;"><i class="fa-solid fa-chart-simple fa-rotate-270"></i></h1>
+                        <br>
+                        <h2 style="transform: rotate(270deg); margin-top: 50px;"> Reports</h2>
+                    </div>
+                    <a href="/reports" style="text-decoration: none; color: black;">
+                        <div class="content">
+                            <h1><i class="fa-solid fa-right-to-bracket"></i></h1>
+                            <h1 style="color:white; font-size:1em">Go</h1>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="left-column">
+        <div class="testimonials-container" id="testimonials">
+
+            <div class="testimotionals">
+                <div class="card">
+                    <div class="layer">
+                        <h1 style="font-size:4em"><i class="fas fa-robot fa-fade"></i></h1>
+                        <br>
+                        <h2> Classifier </h2>
+
+                    </div>
+                    <a href="/predict" style="text-decoration: none; color: black;">
+                        <div class="content">
+                            <h1><i class="fa-solid fa-circle-play"></i></h1>
+                            <h1 style="color:white;font-size:1em"> Launch </h1>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+            <div class="testimotionals">
+                <div class="card">
+                    <div class="layer">
+                        <h1 style="font-size:4em"><i class="fa-solid fa-brain fa-shake"></i></h1>
+                        <br>
+                        <h2> Train </h2>
+                    </div>
+                    <a href="/train" style="text-decoration: none; color: black;">
+                        <div class="content">
+                            <h1><i class="fa-solid fa-meteor"></i></h1>
+                            <h1 style="color:white;font-size:1em">Trigger</h1>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+
+            <div class="testimotionals">
+                <div class="card">
+                    <div class="layer">
+                        <h1 style="font-size:4em"><i class="fa-regular fa-clipboard"></i></h1><br>
+                        <h2>Logs</h1>
+                    </div>
+                    <a href="/logs" style="text-decoration: none; color: black;">
+                        <div class="content">
+                            <h1><i class="fa-solid fa-right-to-bracket"></i></h1>
+                            <h1 style="color:white;font-size:1em">logs</h1>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="testimotionals">
+                <div class="card">
+                    <div class="layer">
+                        <h1 style="font-size:4em"><i class="fa-solid fa-paperclip"></i></h1>
+                        <br>
+                        <h2> Artifacts</h2>
+                    </div>
+                    <a href="/artifact" style="text-decoration: none; color: black;">
+                        <div class="content">
+                            <h1><i class="fa-solid fa-right-to-bracket"></i></h1>
+                            <h1 style="color:white; font-size:1em">Artifacts</h1>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="testimotionals">
+                <div class="card">
+                    <div class="layer">
+                        <h1 style="font-size:4em"><i class="fa-brands fa-pagelines"></i></h1><br>
+                        <h2>Saved Models</h2>
+                    </div>
+                    <a href="/saved_models" style="text-decoration: none; color: black;">
+                        <div class="content">
+                            <h1><i class="fa-solid fa-right-to-bracket"></i></h1>
+                            <h1 style="color:white; font-size:1em">Models</h1>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="testimotionals">
+                <div class="card">
+                    <div class="layer">
+                        <h1 style="font-size:4em"><i class="fa-solid fa-gear fa-spin"></i></h1>
+                        <br>
+                        <h2> Config</h2>
+                    </div>
+                    <a href="/update_model_config" style="text-decoration: none; color: black;">
+                        <div class="content">
+                            <h1><i class="fa-solid fa-right-to-bracket"></i></h1>
+                            <h1 style="color:white; font-size:1em">Update</h1>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!---------    CARD FOR BACKGROUND GLOBE --------->
+<!--
+<div class="card" style="background-color: rgb(255, 255, 255);">
+    <div class="content">
+
+        <svg viewBox="-500 -500 1000 1000">
+            <circle r="450"></circle>
+            <circle class="equator" r="450"></circle>
+            <circle class="meridian" r="450"></circle>
+            <circle class="meridian" r="450"></circle>
+            <circle class="meridian" r="450"></circle>
+            <circle class="meridian" r="450"></circle>
+            <circle class="meridian" r="450"></circle>
+            <circle class="meridian" r="450"></circle>
+            <circle class="meridian" r="450"></circle>
+            <circle class="meridian" r="450"></circle>
+            <circle class="meridian" r="450"></circle>
+            <circle class="meridian" r="450"></circle>
+            <circle class="meridian" r="450"></circle>
+            <circle class="meridian" r="450"></circle>
+        </svg>
+    </div>
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+-->
+
+
+
+
+{% endblock %}
