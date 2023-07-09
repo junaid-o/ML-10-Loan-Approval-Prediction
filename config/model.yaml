@@ -2,7 +2,7 @@ grid_search:
   class: GridSearchCV
   module: sklearn.model_selection
   params:
-    cv: 2
+    cv: 4
     verbose: 3
     refit: roc_auc_ovr_weighted
     scoring: [f1_weighted, roc_auc_ovr_weighted, balanced_accuracy, neg_log_loss]
@@ -16,6 +16,8 @@ model_selection:
     search_param_grid:            
       n_estimators: [500]            
       max_features: [sqrt, log2]
+      criterion: ['gini','log_loss']
+      max_depth: [2,4,5,6,8,10,15,20]
       class_weight: [balanced, balanced_subsample]      
 
   module_2:
@@ -26,4 +28,14 @@ model_selection:
       weights: distance
     search_param_grid: 
       n_neighbors: [3, 6, 9]
+      weights: ['uniform','distance']
       
+  model_3:
+    class: AdaBoostClassifier
+      module: sklearn.ensemble
+    params:
+      algorithm: auto
+      weights: distance
+    search_param_grid: 
+      n_estimators: [50,60,70,90,100,110]
+      learning_rate: [10e-3,10e-2,10e-1,1.0]

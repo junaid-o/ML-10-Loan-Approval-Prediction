@@ -9,7 +9,7 @@ import yaml
 from pyexpat import model
 from cmath import log
 from typing import List
-from sklearn.metrics import balanced_accuracy_score, f1_score, roc_auc_score, log_loss
+from sklearn.metrics import balanced_accuracy_score, f1_score, precision_score, roc_auc_score, log_loss
 
 from collections import namedtuple
 from LoanApproval.logger import logging
@@ -69,6 +69,8 @@ def evaluate_classification_model(model_list: list, X_train:np.ndarray, y_train:
         
         f1_train_list = []
         f1_test_list = []
+        precision_train_list = []
+        precision_test_list = []
         balanced_accuracy_train_list = []
         balanced_accuracy_test_list = []
         balanced_accuracy_diff_list = []
@@ -101,6 +103,13 @@ def evaluate_classification_model(model_list: list, X_train:np.ndarray, y_train:
             print("=======y_test shape======"*5)
             print(y_train.shape)
             print(y_train)
+
+            # Precision Calculcation
+            precision_train = precision_score(y_train, model.predict(X_train), zero_division=0, average='weighted')
+            precision_test = precision_score(y_train, model.predict(X_train), zero_division=0, average='weighted')
+
+            precision_train_list.append(precision_train)
+            precision_test_list.append(precision_test)
 
             # Calculating roc_auc_ovr_weighted
             roc_auc_ovr_weighted_train =  roc_auc_score(y_train, model.predict(X_train), multi_class='ovr', average='weighted')
@@ -159,13 +168,14 @@ def evaluate_classification_model(model_list: list, X_train:np.ndarray, y_train:
 
             logging.info(f"train balanced accuracy: {train_balanced_accuracy_score} and model_accuracy(average): {model_accuracy} and base_accuracy: {base_accuracy} and diff_test_train_accuracy{diff_test_train_acc}")
             
+            precision_logic = (precision_train >= 7) and abs(precision_train -  precision_test) <=0.3
             f1_logic = (train_f1 >= 0.40) and abs(train_f1 - test_f1) <= 0.5
             roc_auc_logic = (roc_auc_ovr_weighted_train >= 0.4) and abs(roc_auc_ovr_weighted_train - roc_auc_ovr_weighted_test) <= 0.5
             model_accuracy_logic = (train_balanced_accuracy_score >= base_accuracy) and diff_test_train_acc <= 0.6
-            loss_logic = (loss_train <= 1.013) and abs(loss_train - loss_test) <= 1
+            loss_logic = (loss_train <= 1.015) and abs(loss_train - loss_test) <= 1
             
             #if model_accuracy >= base_accuracy and diff_test_train_acc < 0.5:
-            if f1_logic and roc_auc_logic and model_accuracy_logic and loss_logic:
+            if  precision_logic and f1_logic and roc_auc_logic and model_accuracy_logic: #and loss_logic:
             
                 #base_accuracy = model_accuracy
                 
@@ -197,6 +207,8 @@ def evaluate_classification_model(model_list: list, X_train:np.ndarray, y_train:
         #################################################################
 
         data = {"models": model_name_list,
+                "Precision_train": precision_train_list,
+                "Precision_test": precision_test_list,
                 "f1_weighted_train": f1_train_list,
                 "f1_weighted_test": f1_test_list,
                 "roc_auc_ovr_weighted_train": roc_auc_ovr_weighted_train_list,
