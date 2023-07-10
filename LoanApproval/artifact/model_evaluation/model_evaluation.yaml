@@ -1,2 +1,5 @@
 best_model:
-  model_path: C:\Users\HIMANSHU\Desktop\ML-10-Loan-Approval-Prediction\LoanApproval\artifact\model_trainer\2023-06-07-14-16-59\trained_model\model.pkl
+  model_path: C:\Users\HIMANSHU\Desktop\ML-10-Loan-Approval-Prediction\LoanApproval\artifact\model_trainer\2023-07-10-17-38-59\trained_model\model.pkl
+history:
+  2023-07-10-17-38-59:
+    model_path: C:\Users\HIMANSHU\Desktop\ML-10-Loan-Approval-Prediction\LoanApproval\artifact\model_trainer\2023-07-10-17-06-01\trained_model\model.pkl
