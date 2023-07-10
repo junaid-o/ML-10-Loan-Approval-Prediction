@@ -34,13 +34,13 @@ Best performer in both coditions is `RandomForestClassifier`
 *   Scores Achieved:
         
 
-        | Metric                | Train | Test  |
-        |-----------------------|-------|-------|
-        | F1 weighted           | 0.744 | 0.732 |        
-        | ROC AUC OVR Weighted  | 0.891 | 0.87 |
-        | Balanced Accuracy     | 0.872 | 0.822 |
-        | Log loss              | 0.99| 1.027 |
-        
+    | Metric                | Train | Test  |
+    |-----------------------|-------|-------|
+    | F1 weighted           | 0.788 | 0.784 |        
+    | ROC AUC OVR Weighted  | 0.708 | 0.706 |
+    | Balanced Accuracy     | 0.708 | 0.706 |
+    | Log loss              | 0.0.644| 0.651 |
+    
 
 
 ## **Evaluation Metrices**
