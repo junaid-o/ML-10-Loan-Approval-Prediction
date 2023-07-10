@@ -39,7 +39,7 @@ Best performer in both coditions is `RandomForestClassifier`
     | F1 weighted           | 0.788 | 0.784 |        
     | ROC AUC OVR Weighted  | 0.708 | 0.706 |
     | Balanced Accuracy     | 0.708 | 0.706 |
-    | Log loss              | 0.0.644| 0.651 |
+    | Log loss              | 0.644| 0.651 |
     
 
 
