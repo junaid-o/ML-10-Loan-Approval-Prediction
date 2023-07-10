@@ -5,7 +5,7 @@ grid_search:
     cv: 4
     verbose: 3
     refit: roc_auc_ovr_weighted
-    scoring: [f1_weighted, roc_auc_ovr_weighted, balanced_accuracy, neg_log_loss]
+    scoring: [precision, roc_auc_ovr_weighted, f1_weighted, balanced_accuracy, neg_log_loss]
 
 model_selection:
   module_1:
@@ -16,9 +16,9 @@ model_selection:
     search_param_grid:            
       n_estimators: [500]            
       max_features: [sqrt, log2]
-      criterion: ['gini','log_loss']
-      max_depth: [2,4,5,6,8,10,15,20]
-      class_weight: [balanced, balanced_subsample]      
+      criterion: ['gini', 'log_loss']
+      max_depth: [2, 4, 5, 6, 8, 10, 15, 20]
+      class_weight: [balanced, balanced_subsample]
 
   module_2:
     class: KNeighborsClassifier
@@ -28,14 +28,14 @@ model_selection:
       weights: distance
     search_param_grid: 
       n_neighbors: [3, 6, 9]
-      weights: ['uniform','distance']
+      weights: [uniform, distance]
       
-  model_3:
+  module_3:
     class: AdaBoostClassifier
-      module: sklearn.ensemble
+    module: sklearn.ensemble
     params:
-      algorithm: auto
-      weights: distance
+      algorithm: SAMME.R
+      random_state: 2023
     search_param_grid: 
-      n_estimators: [50,60,70,90,100,110]
-      learning_rate: [10e-3,10e-2,10e-1,1.0]
+      n_estimators: [50, 60, 70, 90, 100, 110]
+      learning_rate: [0.001, 0.01, 0.1, 1.0]
