@@ -174,3 +174,139 @@ To build and run this project using Docker, follow these steps:
 
 # **Project Structure**
 
+
+
+```
+ML-10-Loan-Approval-Prediction
+├─ .dockerignore
+├─ .github
+│  └─ workflows
+│     └─ main.yaml
+├─ .gitignore
+├─ app.py
+├─ config
+│  ├─ config.yaml
+│  ├─ model.yaml
+│  └─ schema.yaml
+├─ Dockerfile
+├─ LICENSE
+├─ LoanApproval
+│  ├─ artifact
+│  │  ├─ base_data_ingestion
+│  │  │  ├─ 2023-07-10-17-06-01
+│  │  │  │  └─ cleaned_data
+│  │  │  │     ├─ processed_data
+│  │  │  │     │  ├─ Cleaned_transformed
+│  │  │  │     │  │  └─ df_cleaned.csv
+│  │  │  │     │  └─ split_data
+│  │  │  │     │     ├─ test_set
+│  │  │  │     │     │  └─ test.csv
+│  │  │  │     │     └─ train_set
+│  │  │  │     │        └─ train.csv
+│  │  │  │     └─ raw_data_merged
+│  │  │  │        └─ df_combined.csv
+│  │  ├─ data_validation
+│  │  │  ├─ 2023-07-10-17-06-01
+│  │  │  │  ├─ drift_report.html
+│  │  │  │  └─ drift_report.json
+│  │  ├─ experiment
+│  │  │  └─ experiment.csv
+│  │  ├─ model_evaluation
+│  │  │  └─ model_evaluation.yaml
+│  │  ├─ model_trainer
+│  │  │  ├─ 2023-07-10-17-06-01
+│  │  │  │  ├─ performance
+│  │  │  │  │  └─ PerformanceReport.html
+│  │  │  │  ├─ score
+│  │  │  │  │  ├─ model_score.csv
+│  │  │  │  │  └─ model_score.html
+│  │  │  │  └─ trained_model
+│  │  │  │     └─ model.pkl
+│  │  ├─ Profiling
+│  │  │  ├─ 2023-07-10-17-06-01
+│  │  │  │  ├─ Part_1
+│  │  │  │  │  └─ ProfileReport_1.html
+│  │  │  │  └─ Part_2
+│  │  │  │     └─ ProfileReport_2.html
+│  │  │  └─ 2023-07-10-17-38-59
+│  │  │     ├─ Part_1
+│  │  │     │  └─ ProfileReport_1.html
+│  │  │     └─ Part_2
+│  │  │        └─ ProfileReport_2.html
+│  │  └─ transformed_data_dir
+│  │   
+│  ├─ component
+│  │  ├─ data_ingestion.py
+│  │  ├─ data_transformation.py
+│  │  ├─ data_validation.py
+│  │  ├─ model_evaluation.py
+│  │  ├─ model_performance.py
+│  │  ├─ model_pusher.py
+│  │  ├─ model_trainer.py
+│  │  └─ __init__.py
+│  ├─ config
+│  │  ├─ configuration.py
+│  │  └─ __init__.py
+│  ├─ constant
+│  │  └─ __init__.py
+│  ├─ dataset_base
+│  │  └─ raw_data
+│  │     └─ train_u6lujuX_CVtuZ9i (1).csv
+│  ├─ entity
+│  │  ├─ artifact_entity.py
+│  │  ├─ config_entity.py
+│  │  ├─ eligibility_predictor.py
+│  │  ├─ experiment.py
+│  │  ├─ model_factory.py
+│  │  └─ __init__.py
+│  ├─ exception
+│  │  └─ __init__.py
+│  ├─ logger
+│  │  └─ __init__.py
+│  ├─ pipeline
+│  │  ├─ pipeline.py
+│  │  └─ __init__.py
+│  ├─ util
+│  │  ├─ util.py
+│  │  └─ __init__.py
+│  └─ __init__.py
+├─ logs
+├─ Notebook
+├─ README.md
+├─ requirements.txt
+├─ saved_models
+│  ├─ 20230710172322
+│  │  ├─ model.pkl
+│  │  └─ score
+│  │     ├─ model_score.csv
+│  │     └─ model_score.html
+│  └─ 20230710175857
+│     ├─ model.pkl
+│     └─ score
+│        ├─ model_score.csv
+│        └─ model_score.html
+├─ setup.py
+├─ static
+│  ├─ css
+│  │  └─ style.css
+│  └─ js
+│     └─ script.js
+└─ templates
+   ├─ bulk_prediction.html
+   ├─ drift_report.html
+   ├─ eda.html
+   ├─ experiment_history.html
+   ├─ files.html
+   ├─ header.html
+   ├─ index.html
+   ├─ log.html
+   ├─ log_files.html
+   ├─ PerformanceReport.html
+   ├─ predict.html
+   ├─ ProfileReport_1.html
+   ├─ ProfileReport_2.html
+   ├─ saved_models_files.html
+   ├─ train.html
+   └─ update_model.html
+
+```
