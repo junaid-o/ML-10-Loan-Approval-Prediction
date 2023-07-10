@@ -168,14 +168,14 @@ def evaluate_classification_model(model_list: list, X_train:np.ndarray, y_train:
 
             logging.info(f"train balanced accuracy: {train_balanced_accuracy_score} and model_accuracy(average): {model_accuracy} and base_accuracy: {base_accuracy} and diff_test_train_accuracy{diff_test_train_acc}")
             
-            precision_logic = (precision_train >= 7) and abs(precision_train -  precision_test) <=0.3
-            f1_logic = (train_f1 >= 0.40) and abs(train_f1 - test_f1) <= 0.5
-            roc_auc_logic = (roc_auc_ovr_weighted_train >= 0.4) and abs(roc_auc_ovr_weighted_train - roc_auc_ovr_weighted_test) <= 0.5
-            model_accuracy_logic = (train_balanced_accuracy_score >= base_accuracy) and diff_test_train_acc <= 0.6
-            loss_logic = (loss_train <= 1.015) and abs(loss_train - loss_test) <= 1
+            precision_logic = (precision_train >= 0.80) and abs(precision_train -  precision_test) <=0.05
+            f1_logic = (train_f1 >= 0.78) and abs(train_f1 - test_f1) <= 0.1
+            roc_auc_logic = (roc_auc_ovr_weighted_train >= 0.7) and abs(roc_auc_ovr_weighted_train - roc_auc_ovr_weighted_test) <= 0.1
+            model_accuracy_logic = (train_balanced_accuracy_score >= base_accuracy) and diff_test_train_acc <= 0.2
+            #loss_logic = (loss_train <= 1.015) and abs(loss_train - loss_test) <= 1
             
-            #if model_accuracy >= base_accuracy and diff_test_train_acc < 0.5:
-            if  precision_logic and f1_logic and roc_auc_logic and model_accuracy_logic: #and loss_logic:
+    
+            if  precision_logic and f1_logic and roc_auc_logic and model_accuracy_logic: # model_accuracy_logic and loss_logic:
             
                 #base_accuracy = model_accuracy
                 
